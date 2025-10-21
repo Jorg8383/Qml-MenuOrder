@@ -25,11 +25,15 @@ ApplicationWindow {
     width: 800
     height: 800
     visible: true
-    title: qsTr("Mr Ha")
+    title: qsTr("Pickle Restaurant")
 
     background: Image {
         source: "image/vietnamese_food.jpg"
         fillMode: Image.PreserveAspectCrop
         opacity: 0.3
+    }
+
+    MenuPage {
+        anchors.fill: parent
     }
 }

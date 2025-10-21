@@ -17,9 +17,11 @@ qt_add_qml_module(appIntroToQtQuickControls
     VERSION 1.0
     QML_FILES
         Main.qml
+        MenuPage.qml
+        MenuCategory.qml
+        MenuItem.qml
     RESOURCES
         image/vietnamese_food.jpg
-
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
