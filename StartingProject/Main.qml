@@ -4,6 +4,7 @@ import QtQuick.Controls.Basic
 ApplicationWindow {
     id: window
 
+
     /* Your menu ordering application should contain the following:
 
         - A variety of Controls from the Qt Quick Controls module
@@ -21,11 +22,14 @@ ApplicationWindow {
         - If using anchors to arrange your design becomes complex, try using
           RowLayout and ColumnLayout from the Qt Quick Layouts module.
     */
-
-    width: 640
-    height: 480
+    width: 800
+    height: 800
     visible: true
-    title: qsTr("Your Restaurant Name")
+    title: qsTr("Mr Ha")
 
-    color: "black"
+    background: Image {
+        source: "image/vietnamese_food.jpg"
+        fillMode: Image.PreserveAspectCrop
+        opacity: 0.3
+    }
 }

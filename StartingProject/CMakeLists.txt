@@ -18,8 +18,8 @@ qt_add_qml_module(appIntroToQtQuickControls
     QML_FILES
         Main.qml
     RESOURCES
-    # TODO: add the resources you want to use
-    # some are provided already in the images and fonts folders
+        image/vietnamese_food.jpg
+
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
