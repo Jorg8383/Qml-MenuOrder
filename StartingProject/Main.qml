@@ -38,6 +38,9 @@ ApplicationWindow {
         source: "fonts/SpicyPotatos.ttf"
     }
 
+    font.family: themeFont.name
+    font.pixelSize: 16
+
     MenuPage {
         anchors.fill: parent
     }
