@@ -22,6 +22,7 @@ qt_add_qml_module(appIntroToQtQuickControls
         MenuItem.qml
     RESOURCES
         image/vietnamese_food.jpg
+        fonts/SpicyPotatos.ttf
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

@@ -6,7 +6,8 @@ Page {
 
     header: Label {
         text: qsTr("Pickle Restaurant")
-        font.pixelSize: 24
+        font.family: themeFont.font.family
+        font.pixelSize: 48
         color: "black"
         horizontalAlignment: Text.AlignHCenter
         width: parent.width

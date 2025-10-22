@@ -33,6 +33,11 @@ ApplicationWindow {
         opacity: 0.3
     }
 
+    FontLoader {
+        id: themeFont
+        source: "fonts/SpicyPotatos.ttf"
+    }
+
     MenuPage {
         anchors.fill: parent
     }
