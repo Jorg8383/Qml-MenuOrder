@@ -2,35 +2,34 @@ import QtQuick
 import QtQuick.Controls.Basic
 import QtQuick.Layouts
 
-Item {
+
+RowLayout {
     id: root
     property double price : 0
-    property int quantity: quantity.value
-    property string itemName : "undefined"
-    signal totalChanged(double total) // emitted whenever quantity changes
+    property alias quantity: 0
+    property string itemName
+    readonly property double value: root.quantity * root.price
+    signal quantityChanged(int newQuantity) // emitted whenever quantity changes
 
-    RowLayout {
-        spacing: 10
+    spacing: 10
 
-        Label {
-            text: qsTr(itemName, ": $" + price.toFixed(2))
-            Layout.alignment: Qt.AlignLeft
-        }
-
-        SpinBox {
-            id: quantity
-            stepSize: 1
-            from: 0
-            to: 10
-            value: 0
-            onValueChanged: {
-                let total = quantity.value * price
-                totalChanged(total)
-                console.log("Item:", itemName, "Quantity:", quantity.value, "Total $:", total)
-            }
-            Layout.alignment: Qt.AlignRight
-        }
-
+    Label {
+        text: itemName + ": $" + root.price.toFixed(2)
+        font.pixelSize: 18
+        Layout.fillWidth: true
     }
 
+    SpinBox {
+        id: spinBox
+        stepSize: 1
+        from: 0
+        to: 10
+        value: root.quantity
+        onValueChanged: {
+            root.quantity = spinBox.value
+            quantityChanged(spinBox.value)
+            console.log("Item:", root.itemName, "Quantity:", root.quantity)
+        }
+        Layout.alignment: Qt.AlignVCenter
+    }
 }
