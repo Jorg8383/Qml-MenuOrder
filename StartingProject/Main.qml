@@ -1,5 +1,6 @@
 import QtQuick
-import QtQuick.Controls.Basic
+import QtQuick.Controls
+import QtQuick.Layouts
 
 ApplicationWindow {
     id: window
@@ -25,7 +26,7 @@ ApplicationWindow {
     width: 800
     height: 800
     visible: true
-    title: qsTr("Pickle Restaurant")
+    title: qsTr("Ahji-Bhaji Restaurant")
 
     background: Image {
         source: "image/vietnamese_food.jpg"
@@ -38,10 +39,165 @@ ApplicationWindow {
         source: "fonts/SpicyPotatos.ttf"
     }
 
+    // Global font for all controls
     font.family: themeFont.name
     font.pixelSize: 16
 
-    MenuPage {
+    // Color palette for controls
+    palette.text: "black"
+
+
+    Pane {
         anchors.fill: parent
+        background: Rectangle {color: "transparent"}
+        padding: 20
+
+        RowLayout {
+            anchors.fill: parent
+            spacing: 30
+
+            //---- Left column ---
+            ColumnLayout {
+                spacing: 8
+
+                MenuPage {
+                    title: "Starters"
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                }
+                MenuPage {
+                    title: "Mains"
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                }
+                MenuPage {
+                    title: "Deserts"
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                }
+            }
+            //---- Right column ---
+            ColumnLayout {
+                spacing: 8
+
+                MenuPage {
+                    title: "Starters"
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                }
+                MenuPage {
+                    title: "Mains"
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                }
+                MenuPage {
+                    title: "Deserts"
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                }
+            }
+        }
     }
 }
+
+    // Pane {
+    //     anchors.fill: parent
+    //     background: Rectangle {color: "transparent"}
+
+    //     RowLayout {
+    //         anchors.fill: parent
+    //         spacing: 10
+
+    //         //---- Left column ---
+    //         ColumnLayout {
+    //             Layout.fillWidth: true
+    //             Layout.fillHeight: true
+    //             spacing: 8
+
+    //             MenuPage {
+    //                 id: starters
+    //                 title: qsTr("Starters")
+
+    //                 Layout.fillWidth: true
+
+    //                 DishItem {
+    //                     name: qsTr("Onion Bhaji")
+    //                     price: 10
+    //                 }
+    //                 DishItem {
+    //                     name: qsTr("Meat Samosa")
+    //                     price: 12
+    //                 }
+    //                 DishItem {
+    //                     name: qsTr("Nargis Kebab")
+    //                     price: 15
+    //                 }
+    //             }
+    //             MenuPage {
+    //                 id: mains
+    //                 title: qsTr("Mains")
+
+    //                 Layout.fillWidth: true
+
+    //                 DishItem {
+    //                     name: qsTr("Paneer Tikka")
+    //                     price: 20
+    //                 }
+    //                 DishItem {
+    //                     name: qsTr("Lamb Bhuna")
+    //                     price: 25
+    //                 }
+    //                 DishItem {
+    //                     name: qsTr("Murgh Tikka")
+    //                     price: 28
+    //                 }
+    //             }
+    //         }
+    //         //---- Right column ---
+    //         ColumnLayout {
+    //             Layout.fillWidth: true
+    //             Layout.fillHeight: true
+    //             spacing: 8
+
+    //             MenuPage {
+    //                 id: sides
+    //                 title: qsTr("Sides")
+
+    //                 Layout.fillWidth: true
+
+    //                 DishItem {
+    //                     name: qsTr("Pilau Rice")
+    //                     price: 10
+    //                 }
+    //                 DishItem {
+    //                     name: qsTr("Aloo Ghobi")
+    //                     price: 12
+    //                 }
+    //                 DishItem {
+    //                     name: qsTr("Ahji Bahji")
+    //                     price: 15
+    //                 }
+    //             }
+    //             MenuPage {
+    //                 id: breads
+    //                 title: qsTr("Breads")
+
+    //                 Layout.fillWidth: true
+
+    //                 DishItem {
+    //                     name: qsTr("Garlic Naan")
+    //                     price: 15
+    //                 }
+    //                 DishItem {
+    //                     name: qsTr("Keema Naan")
+    //                     price: 18
+    //                 }
+    //                 DishItem {
+    //                     name: qsTr("Naan at all")
+    //                     price: 1
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+// }

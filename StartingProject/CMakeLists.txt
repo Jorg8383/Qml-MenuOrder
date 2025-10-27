@@ -18,8 +18,7 @@ qt_add_qml_module(appIntroToQtQuickControls
     QML_FILES
         Main.qml
         MenuPage.qml
-        MenuCategory.qml
-        MenuItem.qml
+        DishItem.qml
     RESOURCES
         image/vietnamese_food.jpg
         fonts/SpicyPotatos.ttf
