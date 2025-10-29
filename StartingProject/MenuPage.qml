@@ -14,14 +14,21 @@ Page {
         id: title
         text: root.title
         font.pixelSize: 28
-        padding: 4
+        padding: 10
         horizontalAlignment: Text.AlignLeft
         Layout.alignment: Qt.AlignHCenter
+    }
+
+    background: Rectangle {
+        color: "grey"
+        radius: 8
+        opacity: 0.5
     }
 
     Pane {
         anchors.fill: parent
         padding: 10
+        background: null
 
         ColumnLayout {
             anchors.fill: parent
