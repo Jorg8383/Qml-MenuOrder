@@ -62,37 +62,37 @@ ApplicationWindow {
 
                 MenuPage {
                     title: "Starters"
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
                     item1 {
-                        name: qsTr("item 1")
+                        name: qsTr("Onion Bhaji")
                         price: 10
                     }
                     item2 {
-                        name: qsTr("item 2")
-                        price: 20
+                        name: qsTr("Meat Samosa")
+                        price: 12
                     }
                     item3 {
-                        name: qsTr("item 3")
-                        price: 30
+                        name: qsTr("Nargis Kebab")
+                        price: 15
                     }
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
                 }
                 MenuPage {
                     title: "Mains"
-                    item1 {
-                        name: qsTr("item 1")
-                        price: 10
-                    }
-                    item2 {
-                        name: qsTr("item 2")
-                        price: 20
-                    }
-                    item3 {
-                        name: qsTr("item 3")
-                        price: 30
-                    }
                     Layout.fillHeight: true
                     Layout.fillWidth: true
+                    item1 {
+                        name: qsTr("Paneer Tikka")
+                        price: 20
+                    }
+                    item2 {
+                        name: qsTr("Lamb Bhuna")
+                        price: 25
+                    }
+                    item3 {
+                        name: qsTr("Murgh Tikka")
+                        price: 28
+                    }
                 }
             }
             //---- Right column ---
@@ -100,38 +100,38 @@ ApplicationWindow {
                 spacing: 8
 
                 MenuPage {
-                    title: "Starters"
+                    title: "Sides"
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
                     item1 {
-                        name: qsTr("item 1")
+                        name: qsTr("Pilau Rice")
                         price: 10
                     }
                     item2 {
-                        name: qsTr("item 2")
-                        price: 20
+                        name: qsTr("Aloo Ghobi")
+                        price: 12
                     }
                     item3 {
-                        name: qsTr("item 3")
-                        price: 30
+                        name: qsTr("Ahji Bahji")
+                        price: 15
                     }
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
                 }
                 MenuPage {
-                    title: "Mains"
-                    item1 {
-                        name: qsTr("item 1")
-                        price: 10
-                    }
-                    item2 {
-                        name: qsTr("item 2")
-                        price: 20
-                    }
-                    item3 {
-                        name: qsTr("item 3")
-                        price: 30
-                    }
+                    title: "Breads"
                     Layout.fillHeight: true
                     Layout.fillWidth: true
+                    item1 {
+                        name: qsTr("Garlic Naan")
+                        price: 15
+                    }
+                    item2 {
+                        name: qsTr("Keema Naan")
+                        price: 18
+                    }
+                    item3 {
+                        name: qsTr("Naan at all")
+                        price: 10
+                    }
                 }
             }
         }
