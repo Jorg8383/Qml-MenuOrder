@@ -70,11 +70,6 @@ ApplicationWindow {
                     Layout.fillHeight: true
                     Layout.fillWidth: true
                 }
-                MenuPage {
-                    title: "Deserts"
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
-                }
             }
             //---- Right column ---
             ColumnLayout {
@@ -87,11 +82,6 @@ ApplicationWindow {
                 }
                 MenuPage {
                     title: "Mains"
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
-                }
-                MenuPage {
-                    title: "Deserts"
                     Layout.fillHeight: true
                     Layout.fillWidth: true
                 }

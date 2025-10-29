@@ -28,21 +28,34 @@ Page {
             anchors.fill: parent
             spacing: 6
 
-            Rectangle {
-                color: "grey"
-                Layout.fillHeight: true
-                Layout.fillWidth: true
+            DishItem {
+                name: qsTr("Item 1")
+                price: 10
             }
-            Rectangle {
-                color: "blue"
-                Layout.fillHeight: true
-                Layout.fillWidth: true
+            DishItem {
+                name: qsTr("Item 2")
+                price: 20
             }
-            Rectangle {
-                color: "brown"
-                Layout.fillHeight: true
-                Layout.fillWidth: true
+            DishItem {
+                name: qsTr("Item 3")
+                price: 30
             }
+
+            // Rectangle {
+            //     color: "grey"
+            //     Layout.fillHeight: true
+            //     Layout.fillWidth: true
+            // }
+            // Rectangle {
+            //     color: "blue"
+            //     Layout.fillHeight: true
+            //     Layout.fillWidth: true
+            // }
+            // Rectangle {
+            //     color: "brown"
+            //     Layout.fillHeight: true
+            //     Layout.fillWidth: true
+            // }
         }
     }
 }
