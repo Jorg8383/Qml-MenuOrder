@@ -62,11 +62,35 @@ ApplicationWindow {
 
                 MenuPage {
                     title: "Starters"
+                    item1 {
+                        name: qsTr("item 1")
+                        price: 10
+                    }
+                    item2 {
+                        name: qsTr("item 2")
+                        price: 20
+                    }
+                    item3 {
+                        name: qsTr("item 3")
+                        price: 30
+                    }
                     Layout.fillHeight: true
                     Layout.fillWidth: true
                 }
                 MenuPage {
                     title: "Mains"
+                    item1 {
+                        name: qsTr("item 1")
+                        price: 10
+                    }
+                    item2 {
+                        name: qsTr("item 2")
+                        price: 20
+                    }
+                    item3 {
+                        name: qsTr("item 3")
+                        price: 30
+                    }
                     Layout.fillHeight: true
                     Layout.fillWidth: true
                 }
@@ -77,11 +101,35 @@ ApplicationWindow {
 
                 MenuPage {
                     title: "Starters"
+                    item1 {
+                        name: qsTr("item 1")
+                        price: 10
+                    }
+                    item2 {
+                        name: qsTr("item 2")
+                        price: 20
+                    }
+                    item3 {
+                        name: qsTr("item 3")
+                        price: 30
+                    }
                     Layout.fillHeight: true
                     Layout.fillWidth: true
                 }
                 MenuPage {
                     title: "Mains"
+                    item1 {
+                        name: qsTr("item 1")
+                        price: 10
+                    }
+                    item2 {
+                        name: qsTr("item 2")
+                        price: 20
+                    }
+                    item3 {
+                        name: qsTr("item 3")
+                        price: 30
+                    }
                     Layout.fillHeight: true
                     Layout.fillWidth: true
                 }

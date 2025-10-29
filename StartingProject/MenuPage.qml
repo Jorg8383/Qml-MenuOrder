@@ -6,10 +6,9 @@ import QtQuick.Layouts
 Page {
     id: root
 
-    // background: Rectangle {
-    //     color: "lightblue"
-    //     border.color: "black"
-    // }
+    property alias item1 : dishItem1
+    property alias item2 : dishItem2
+    property alias item3 : dishItem3
 
     header: Label {
         id: title
@@ -29,45 +28,15 @@ Page {
             spacing: 6
 
             DishItem {
-                name: qsTr("Item 1")
-                price: 10
+                id: dishItem1
             }
             DishItem {
-                name: qsTr("Item 2")
-                price: 20
+                id: dishItem2
             }
             DishItem {
-                name: qsTr("Item 3")
-                price: 30
+                id: dishItem3
             }
         }
     }
 }
 
-// Page {
-//     id: root
-
-//     property alias items: menuColumn.children
-
-//     padding: 0
-//     spacing: 8
-//     background: null
-
-//     header: Label {
-//         id: title
-//         text: root.title
-//         font.pixelSize: 28
-//         padding: 4
-//     }
-
-//     Pane {
-//         anchors.fill: parent
-//         padding: 10
-
-//         ColumnLayout {
-//             id: menuColumn
-//             spacing: 8
-//             anchors.fill: parent
-//        }
-//     }
-// }
