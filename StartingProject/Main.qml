@@ -46,6 +46,13 @@ ApplicationWindow {
     // Color palette for controls
     palette.text: "black"
 
+    header: Label {
+        text: window.title
+        font.pixelSize: 28
+        padding: 10
+        horizontalAlignment: Text.AlignHCenter
+        Layout.alignment: Qt.AlignHCenter
+    }
 
     Pane {
         anchors.fill: parent
