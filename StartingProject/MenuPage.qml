@@ -40,22 +40,6 @@ Page {
                 name: qsTr("Item 3")
                 price: 30
             }
-
-            // Rectangle {
-            //     color: "grey"
-            //     Layout.fillHeight: true
-            //     Layout.fillWidth: true
-            // }
-            // Rectangle {
-            //     color: "blue"
-            //     Layout.fillHeight: true
-            //     Layout.fillWidth: true
-            // }
-            // Rectangle {
-            //     color: "brown"
-            //     Layout.fillHeight: true
-            //     Layout.fillWidth: true
-            // }
         }
     }
 }
