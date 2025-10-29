@@ -6,17 +6,17 @@ import QtQuick.Layouts
 Page {
     id: root
 
-    background: Rectangle {
-        color: "lightblue"
-        border.color: "black"
-    }
+    // background: Rectangle {
+    //     color: "lightblue"
+    //     border.color: "black"
+    // }
 
     header: Label {
         id: title
         text: root.title
         font.pixelSize: 28
         padding: 4
-        horizontalAlignment: Text.AlignHCenter
+        horizontalAlignment: Text.AlignLeft
         Layout.alignment: Qt.AlignHCenter
     }
 
