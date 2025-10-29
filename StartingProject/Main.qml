@@ -62,8 +62,6 @@ ApplicationWindow {
 
                 MenuPage {
                     title: "Starters"
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
                     item1 {
                         name: qsTr("Onion Bhaji")
                         price: 10
@@ -79,8 +77,6 @@ ApplicationWindow {
                 }
                 MenuPage {
                     title: "Mains"
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
                     item1 {
                         name: qsTr("Paneer Tikka")
                         price: 20
@@ -101,8 +97,6 @@ ApplicationWindow {
 
                 MenuPage {
                     title: "Sides"
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
                     item1 {
                         name: qsTr("Pilau Rice")
                         price: 10
@@ -118,8 +112,6 @@ ApplicationWindow {
                 }
                 MenuPage {
                     title: "Breads"
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
                     item1 {
                         name: qsTr("Garlic Naan")
                         price: 15

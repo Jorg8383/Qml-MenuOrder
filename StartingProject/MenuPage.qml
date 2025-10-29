@@ -10,6 +10,9 @@ Page {
     property alias item2 : dishItem2
     property alias item3 : dishItem3
 
+    Layout.fillHeight: true
+    Layout.fillWidth: true
+
     header: Label {
         id: title
         text: root.title
