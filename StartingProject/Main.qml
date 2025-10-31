@@ -121,7 +121,7 @@ ApplicationWindow {
                         spacing: 0
 
                         Image {
-                            source: "image/dark/mild.svg"
+                            source: "image/light/mild.svg"
                             fillMode: Image.PreserveAspectFit
                             Layout.fillWidth: true
                         }
@@ -139,7 +139,7 @@ ApplicationWindow {
                         }
 
                         Image {
-                            source: "image/dark/very_hot.svg"
+                            source: "image/light/very_hot.svg"
                             fillMode: Image.PreserveAspectFit
                             Layout.fillWidth: true
                         }
