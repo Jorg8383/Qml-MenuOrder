@@ -97,36 +97,55 @@ ApplicationWindow {
                         price: 28
                     }
                 }
-            //     Page {
-            //         id: spiceLevel
-            //         Layout.fillHeight: true
-            //         Layout.fillWidth: true
+                Page {
+                    id: spiceLevel
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
 
-            //         header: Label {
-            //             text: qsTr("Spice Level")
-            //             font.pixelSize: 28
-            //             padding: 10
-            //             horizontalAlignment: Text.AlignLeft
-            //             Layout.alignment: Qt.AlignHCenter
-            //         }
+                    header: Label {
+                        text: qsTr("Spice Level")
+                        font.pixelSize: 28
+                        padding: 10
+                        horizontalAlignment: Text.AlignLeft
+                        Layout.alignment: Qt.AlignHCenter
+                    }
 
-            //         background: Rectangle {
-            //             color: "grey"
-            //             radius: 8
-            //             opacity: 0.5
-            //         }
+                    background: Rectangle {
+                        color: "grey"
+                        radius: 8
+                        opacity: 0.5
+                    }
 
-            //         ColumnLayout {
-            //             anchors.fill: parent
-            //             spacing: 5
+                    RowLayout {
+                        anchors.fill: parent
+                        spacing: 0
 
-            //             Image {
-            //                 source: ""
-            //             }
+                        Image {
+                            source: "image/dark/mild.svg"
+                            fillMode: Image.PreserveAspectFit
+                            Layout.fillWidth: true
+                        }
 
-            //         }
+                        Dial {
+                            id: spiceLevelDial
+                            startAngle: -140.0
+                            endAngle: 140.0
+                            from: 0.0
+                            to: 100.0
+                            stepSize: 10.0
+                            scale: 1.5
+                            Layout.fillWidth: true
+                            onMoved: console.log("Spice Level updated:", spiceLevelDial.value, "%")
+                        }
 
-            //     }
+                        Image {
+                            source: "image/dark/very_hot.svg"
+                            fillMode: Image.PreserveAspectFit
+                            Layout.fillWidth: true
+                        }
+                    }
+
+                }
             }
             //---- Right column ---
             ColumnLayout {
