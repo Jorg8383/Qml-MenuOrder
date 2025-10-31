@@ -31,7 +31,7 @@ RowLayout {
         Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
         onValueChanged: {
             quantityChanged(spinBox.value)
-            console.log("Dish:", root.name, "Value:", root.value)
+            console.log("Updated dish:", root.name, "; Quantity:", spinBox.value, "; Total $:", root.price * spinBox.value)
         }
     }
 }
