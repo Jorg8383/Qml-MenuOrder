@@ -292,4 +292,28 @@ ApplicationWindow {
             }
         }
     }
+
+    footer: ToolBar {
+        height: 60
+        RowLayout {
+            anchors.fill: parent
+            anchors.margins: 10
+            spacing: 10
+            Label {
+                text: `Total Order Cost: $xxx`
+                font.pixelSize: 28
+            }
+            Item {Layout.fillWidth: true }
+            ToolButton {
+                text: qsTr("Order Now")
+                Layout.preferredWidth: 120
+                background: Rectangle {
+                    color: "#a2a2a2"
+                    anchors.fill: parent
+                    radius: 5
+                }
+                onClicked: console.log("Order now button clicked")
+            }
+        }
+    }
 }
