@@ -230,6 +230,7 @@ ApplicationWindow {
                         }
 
                         RowLayout {
+                            // Customized slider to enhance the usability
                             Slider {
                                 id: tipSlider
                                 from: 0.0
@@ -238,6 +239,25 @@ ApplicationWindow {
                                 value: 0
                                 Layout.fillWidth: true
                                 snapMode: Slider.SnapOnRelease
+                                height: 15
+
+                                background: Rectangle {
+                                    anchors.fill: parent
+                                    radius: 20
+                                    anchors.verticalCenter: parent.verticalCenter
+                                }
+
+                                handle: Rectangle {
+                                    width: 20
+                                    height: 20
+                                    radius: 20
+                                    color: "black"
+
+                                    // Bind the handle's x to the slider's position
+                                    x: tipSlider.visualPosition * (tipSlider.width - width)
+                                    y: (parent.height - height) / 2
+                                }
+
                                 onMoved: tipLabel.text = `$${tipSlider.value}`
                             }
 
