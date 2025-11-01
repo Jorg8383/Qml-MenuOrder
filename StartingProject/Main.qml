@@ -241,12 +241,27 @@ ApplicationWindow {
                                 snapMode: Slider.SnapOnRelease
                                 height: 15
 
+                                // Full groove
                                 background: Rectangle {
-                                    anchors.fill: parent
-                                    radius: 20
                                     anchors.verticalCenter: parent.verticalCenter
+                                    anchors.left: parent.left
+                                    anchors.right: parent.right
+                                    height: 10
+                                    radius: 5
+                                    color: "#cccccc"
                                 }
 
+                                // Filled portion - progress color effect
+                                Rectangle {
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    anchors.left: parent.left
+                                    height: 10
+                                    radius: 5
+                                    color: "orange" // filled color
+                                    width: tipSlider.visualPosition * tipSlider.width
+                                }
+
+                                // Customized handle
                                 handle: Rectangle {
                                     width: 20
                                     height: 20
