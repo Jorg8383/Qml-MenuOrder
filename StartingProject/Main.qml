@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls.Fusion
 import QtQuick.Layouts
+import "util.js" as Jsutil
 
 ApplicationWindow {
     id: window
@@ -305,14 +306,15 @@ ApplicationWindow {
             }
             Item {Layout.fillWidth: true }
             ToolButton {
+                id: orderButton
                 text: qsTr("Order Now")
-                Layout.preferredWidth: 120
                 background: Rectangle {
-                    color: "#a2a2a2"
                     anchors.fill: parent
+                    implicitWidth: 120
+                    color: orderButton.pressed ? "#9c9c9c" : "#c7c7c7"
                     radius: 5
                 }
-                onClicked: console.log("Order now button clicked")
+                onClicked: Jsutil.updateOrder()
             }
         }
     }

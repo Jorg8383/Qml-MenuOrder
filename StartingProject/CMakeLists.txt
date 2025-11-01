@@ -19,7 +19,7 @@ qt_add_qml_module(appIntroToQtQuickControls
         Main.qml
         MenuPage.qml
         DishItem.qml
-
+        util.js
     RESOURCES
         fonts/SpicyPotatos.ttf
         image/vietnamese_food.jpg
