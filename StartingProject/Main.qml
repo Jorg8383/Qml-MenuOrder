@@ -245,8 +245,10 @@ ApplicationWindow {
                                 id: tipLabel
                                 text: "$0"
                                 font.pixelSize: 22
-                                // horizontalAlignment: Text.AlignRight
-                                // Layout.alignment: Qt.AlignRight
+                                horizontalAlignment: Text.AlignRight
+                                verticalAlignment: Text.AlignVCenter
+                                Layout.preferredWidth: 40 // RowLayout considers the label’s implicit width
+                                Layout.minimumWidth: 40 // ensures the layout reserves space
                             }
                         }
 
