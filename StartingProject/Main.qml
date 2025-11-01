@@ -1,5 +1,5 @@
 import QtQuick
-import QtQuick.Controls
+import QtQuick.Controls.Fusion
 import QtQuick.Layouts
 
 ApplicationWindow {
@@ -56,7 +56,9 @@ ApplicationWindow {
 
     Pane {
         anchors.fill: parent
-        background: Rectangle {color: "transparent"}
+        background: Rectangle {
+            color: "transparent"
+        }
         padding: 20
 
         RowLayout {
@@ -135,7 +137,8 @@ ApplicationWindow {
                             stepSize: 10.0
                             scale: 1.5
                             Layout.fillWidth: true
-                            onMoved: console.log("Spice Level updated:", spiceLevelDial.value, "%")
+                            onMoved: console.log("Spice Level updated:",
+                                                 spiceLevelDial.value, "%")
                         }
 
                         Image {
@@ -144,7 +147,6 @@ ApplicationWindow {
                             Layout.fillWidth: true
                         }
                     }
-
                 }
             }
             //---- Right column ---
@@ -179,6 +181,75 @@ ApplicationWindow {
                     item3 {
                         name: qsTr("Naan at all")
                         price: 10
+                    }
+                }
+                Page {
+                    id: diningOptions
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                    padding: 10
+
+                    header: Label {
+                        text: qsTr("Dining Options")
+                        font.pixelSize: 28
+                        padding: 10
+                        horizontalAlignment: Text.AlignLeft
+                        Layout.alignment: Qt.AlignHCenter
+                    }
+
+                    background: Rectangle {
+                        color: "grey"
+                        radius: 8
+                        opacity: 0.5
+                    }
+
+                    ColumnLayout {
+                        anchors.fill: parent
+                        spacing: 5
+
+                        RowLayout {
+                            Layout.fillHeight: true
+                            Layout.fillWidth: true
+                            RadioButton {
+                                id: diningOptionEatIn
+                                checked: true
+                                text: qsTr("Eat In")
+                            }
+                            RadioButton {
+                                id: diningOptionTakeAway
+                                text: qsTr("Take away")
+                            }
+                        }
+
+                        Label {
+                            text: qsTr("Tip Amount")
+                            font.pixelSize: 28
+                            // padding: 10
+                            horizontalAlignment: Text.AlignLeft
+                            Layout.alignment: Qt.AlignLeft
+                        }
+
+                        RowLayout {
+                            Slider {
+                                id: tipSlider
+                                from: 0.0
+                                to: 20.0
+                                stepSize: 1
+                                value: 0
+                                Layout.fillWidth: true
+                                snapMode: Slider.SnapOnRelease
+                                onMoved: tipLabel.text = `$${tipSlider.value}`
+                            }
+
+                            Label {
+                                id: tipLabel
+                                text: "$0"
+                                font.pixelSize: 22
+                                // horizontalAlignment: Text.AlignRight
+                                // Layout.alignment: Qt.AlignRight
+                            }
+                        }
+
                     }
                 }
             }
