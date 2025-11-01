@@ -17,7 +17,6 @@ RowLayout {
     Label {
         id: dishLabel
         text: name + ": $" + root.price.toFixed(2)
-        font.pixelSize: 18
         Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
     }
 

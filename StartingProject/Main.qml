@@ -41,7 +41,7 @@ ApplicationWindow {
 
     // Global font for all controls
     font.family: themeFont.name
-    font.pixelSize: 16
+    font.pixelSize: 20
 
     // Color palette for controls
     palette.text: "black"
