@@ -364,10 +364,9 @@ ApplicationWindow {
         id: orderPopup
         modal: true
         focus: true
-
-        // Position the popup in the centre of the window
-        x: (window.width - implicitWidth) / 2
-        y: (window.height - implicitHeight) / 2
+        width: window.width / 2
+        height: window.height / 3
+        anchors.centerIn: parent
 
         background: Rectangle {
             color: "white"
@@ -397,10 +396,6 @@ ApplicationWindow {
                 wrapMode: Text.Wrap
                 anchors.horizontalCenter: parent.horizontalCenter
             }
-
-            // let popup size itself based on the content
-            width: implicitWidth
-            height: implicitHeight
         }
     }
 
