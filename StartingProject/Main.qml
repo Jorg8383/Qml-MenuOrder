@@ -347,8 +347,87 @@ ApplicationWindow {
                     color: orderButton.pressed ? "#9c9c9c" : "#c7c7c7"
                     radius: 5
                 }
-                // onClicked: Jsutil.updateOrder()
+                onClicked: {
+                    updateOrder()
+                    orderButton.enabled = false
+                    orderPopup.open()
+                    processingIndicator.running = true
+                    busyText.text = "Order is being processed..."
+                    timerProcessing.start()
+                }
             }
+        }
+    }
+
+    // Popup window for order processing
+    Popup {
+        id: orderPopup
+        modal: true
+        focus: true
+
+        // Position the popup in the centre of the window
+        x: (window.width - implicitWidth) / 2
+        y: (window.height - implicitHeight) / 2
+
+        background: Rectangle {
+            color: "white"
+            radius: 10
+            border.color: "black"
+            border.width: 2
+        }
+
+        Column {
+            anchors.centerIn: parent
+            anchors.margins: 20
+            spacing: 20
+
+            BusyIndicator {
+                id: processingIndicator
+                running: false
+                width: implicitWidth
+                height: implicitHeight
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+
+            Label {
+                id: busyText
+                text: ""
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                wrapMode: Text.Wrap
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+
+            // let popup size itself based on the content
+            width: implicitWidth
+            height: implicitHeight
+        }
+    }
+
+    // Timer for the processing phase
+    Timer {
+        id: timerProcessing
+        interval: 3000 // ms
+        running: false
+        repeat: false
+        onTriggered: {
+            timerCompleting.start()
+            processingIndicator.running = false
+            busyText.text = "Thank you!"
+            timerProcessing.stop()
+        }
+    }
+
+    // Timer for completion phase
+    Timer {
+        id: timerCompleting
+        interval: 2000 // ms
+        running: false
+        repeat: false
+        onTriggered: {
+            timerCompleting.stop()
+            orderPopup.close()
+            orderButton.enabled = true
         }
     }
 }
