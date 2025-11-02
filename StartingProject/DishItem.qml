@@ -7,8 +7,8 @@ RowLayout {
 
     property double price : 0
     property string name : "undefined"
-    readonly property double value: root.quantity * root.price
-    signal quantityChanged(int newQuantity) // emitted whenever quantity changes
+    readonly property alias quantity : spinBox.value
+    signal quantityUpdated(int newQuantity) // emitted whenever quantity changes
 
     Layout.fillHeight: true
     Layout.fillWidth: true
@@ -29,8 +29,8 @@ RowLayout {
         to: 10
         Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
         onValueChanged: {
-            quantityChanged(spinBox.value)
             console.log("Updated dish:", root.name, "; Quantity:", spinBox.value, "; Total $:", root.price * spinBox.value)
+            quantityUpdated(spinBox.value)
         }
     }
 }

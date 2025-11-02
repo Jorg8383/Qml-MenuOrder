@@ -9,6 +9,7 @@ Page {
     property alias item1 : dishItem1
     property alias item2 : dishItem2
     property alias item3 : dishItem3
+    property alias items : itemList.children
 
     Layout.fillHeight: true
     Layout.fillWidth: true
@@ -34,6 +35,7 @@ Page {
         background: null
 
         ColumnLayout {
+            id: itemList
             anchors.fill: parent
             spacing: 6
 

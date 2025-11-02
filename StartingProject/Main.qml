@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Controls.Fusion
 import QtQuick.Layouts
-import "util.js" as Jsutil
+import "orderUtils.js" as OrderUtils
 
 ApplicationWindow {
     id: window
@@ -47,6 +47,16 @@ ApplicationWindow {
     // Color palette for controls
     palette.text: "black"
 
+    function updateOrder()
+    {
+        console.log("updated order...")
+        const menuList = [menuStarters, menuMains, menuBreads, menuSides]
+        const totalMenu = OrderUtils.calcTotal(menuList)
+        const totalAmount = totalMenu + tipSlider.value
+        console.log("total amount:", totalAmount)
+        totalAmountLabel.text = `Total Order Cost: $${totalAmount}`
+    }
+
     header: Label {
         text: window.title
         font.pixelSize: 28
@@ -71,33 +81,41 @@ ApplicationWindow {
                 spacing: 8
 
                 MenuPage {
+                    id: menuStarters
                     title: "Starters"
                     item1 {
                         name: qsTr("Onion Bhaji")
                         price: 10
+                        onQuantityUpdated: updateOrder()
                     }
                     item2 {
                         name: qsTr("Meat Samosa")
                         price: 12
+                        onQuantityUpdated: updateOrder()
                     }
                     item3 {
                         name: qsTr("Nargis Kebab")
                         price: 15
+                        onQuantityUpdated: updateOrder()
                     }
                 }
                 MenuPage {
+                    id: menuMains
                     title: "Mains"
                     item1 {
                         name: qsTr("Paneer Tikka")
                         price: 20
+                        onQuantityUpdated: updateOrder()
                     }
                     item2 {
                         name: qsTr("Lamb Bhuna")
                         price: 25
+                        onQuantityUpdated: updateOrder()
                     }
                     item3 {
                         name: qsTr("Murgh Tikka")
                         price: 28
+                        onQuantityUpdated: updateOrder()
                     }
                 }
                 Page {
@@ -155,33 +173,41 @@ ApplicationWindow {
                 spacing: 8
 
                 MenuPage {
+                    id: menuSides
                     title: "Sides"
                     item1 {
                         name: qsTr("Pilau Rice")
                         price: 10
+                        onQuantityUpdated: updateOrder()
                     }
                     item2 {
                         name: qsTr("Aloo Ghobi")
                         price: 12
+                        onQuantityUpdated: updateOrder()
                     }
                     item3 {
                         name: qsTr("Ahji Bahji")
                         price: 15
+                        onQuantityUpdated: updateOrder()
                     }
                 }
                 MenuPage {
+                    id: menuBreads
                     title: "Breads"
                     item1 {
                         name: qsTr("Garlic Naan")
                         price: 15
+                        onQuantityUpdated: updateOrder()
                     }
                     item2 {
                         name: qsTr("Keema Naan")
                         price: 18
+                        onQuantityUpdated: updateOrder()
                     }
                     item3 {
                         name: qsTr("Naan at all")
                         price: 10
+                        onQuantityUpdated: updateOrder()
                     }
                 }
                 Page {
@@ -274,7 +300,11 @@ ApplicationWindow {
                                     y: (parent.height - height) / 2
                                 }
 
-                                onMoved: tipLabel.text = `$${tipSlider.value}`
+                                onMoved:
+                                {
+                                    tipLabel.text = `$${tipSlider.value}`
+                                    updateOrder()
+                                }
                             }
 
                             Label {
@@ -301,7 +331,8 @@ ApplicationWindow {
             anchors.margins: 10
             spacing: 10
             Label {
-                text: `Total Order Cost: $xxx`
+                id: totalAmountLabel
+                text: "Total Order Cost: $0"
                 font.pixelSize: 28
             }
             Item {Layout.fillWidth: true }
@@ -314,7 +345,7 @@ ApplicationWindow {
                     color: orderButton.pressed ? "#9c9c9c" : "#c7c7c7"
                     radius: 5
                 }
-                onClicked: Jsutil.updateOrder()
+                // onClicked: Jsutil.updateOrder()
             }
         }
     }
