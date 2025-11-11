@@ -25,7 +25,7 @@ ApplicationWindow {
           RowLayout and ColumnLayout from the Qt Quick Layouts module.
     */
     width: 800
-    height: 800
+    height: 480
     visible: true
     title: qsTr("Ahji-Bhaji Restaurant")
 
