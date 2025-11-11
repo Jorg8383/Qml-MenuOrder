@@ -47,8 +47,7 @@ ApplicationWindow {
     // Color palette for controls
     palette.text: "black"
 
-    function updateOrder()
-    {
+    function updateOrder() {
         const menuList = [menuStarters, menuMains, menuBreads, menuSides]
         let totalAmount = OrderUtils.calcTotal(menuList)
         totalAmount += (diningOptionEatIn.checked) ? totalAmount * 0.05 : 0
@@ -72,13 +71,47 @@ ApplicationWindow {
         }
         padding: 20
 
-        RowLayout {
+        ColumnLayout {
             anchors.fill: parent
-            spacing: 30
+            spacing: 8
 
-            //---- Left column ---
-            ColumnLayout {
-                spacing: 8
+            // ---- TabBar for selecting courses ----
+            TabBar {
+                id: tabBar
+                Layout.fillWidth: true
+                currentIndex: stackLayout.currentIndex
+
+                TabButton {
+                    text: qsTr("Starters")
+                    onClicked: stackLayout.currentIndex = 0
+                }
+                TabButton {
+                    text: qsTr("Mains")
+                    onClicked: stackLayout.currentIndex = 1
+                }
+                TabButton {
+                    text: qsTr("Sides")
+                    onClicked: stackLayout.currentIndex = 2
+                }
+                TabButton {
+                    text: qsTr("Breads")
+                    onClicked: stackLayout.currentIndex = 3
+                }
+                TabButton {
+                    text: qsTr("Spices")
+                    onClicked: stackLayout.currentIndex = 4
+                }
+                TabButton {
+                    text: qsTr("Order")
+                    onClicked: stackLayout.currentIndex = 5
+                }
+            }
+            // ---- StackLayout showing pages ----
+            StackLayout {
+                id: stackLayout
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                currentIndex: tabBar.currentIndex
 
                 MenuPage {
                     id: menuStarters
@@ -115,6 +148,44 @@ ApplicationWindow {
                     item3 {
                         name: qsTr("Murgh Tikka")
                         price: 28
+                        onQuantityUpdated: updateOrder()
+                    }
+                }
+                MenuPage {
+                    id: menuSides
+                    title: "Sides"
+                    item1 {
+                        name: qsTr("Pilau Rice")
+                        price: 10
+                        onQuantityUpdated: updateOrder()
+                    }
+                    item2 {
+                        name: qsTr("Aloo Ghobi")
+                        price: 12
+                        onQuantityUpdated: updateOrder()
+                    }
+                    item3 {
+                        name: qsTr("Ahji Bahji")
+                        price: 15
+                        onQuantityUpdated: updateOrder()
+                    }
+                }
+                MenuPage {
+                    id: menuBreads
+                    title: "Breads"
+                    item1 {
+                        name: qsTr("Garlic Naan")
+                        price: 15
+                        onQuantityUpdated: updateOrder()
+                    }
+                    item2 {
+                        name: qsTr("Keema Naan")
+                        price: 18
+                        onQuantityUpdated: updateOrder()
+                    }
+                    item3 {
+                        name: qsTr("Naan at all")
+                        price: 10
                         onQuantityUpdated: updateOrder()
                     }
                 }
@@ -165,49 +236,6 @@ ApplicationWindow {
                             fillMode: Image.PreserveAspectFit
                             Layout.fillWidth: true
                         }
-                    }
-                }
-            }
-            //---- Right column ---
-            ColumnLayout {
-                spacing: 8
-
-                MenuPage {
-                    id: menuSides
-                    title: "Sides"
-                    item1 {
-                        name: qsTr("Pilau Rice")
-                        price: 10
-                        onQuantityUpdated: updateOrder()
-                    }
-                    item2 {
-                        name: qsTr("Aloo Ghobi")
-                        price: 12
-                        onQuantityUpdated: updateOrder()
-                    }
-                    item3 {
-                        name: qsTr("Ahji Bahji")
-                        price: 15
-                        onQuantityUpdated: updateOrder()
-                    }
-                }
-                MenuPage {
-                    id: menuBreads
-                    title: "Breads"
-                    item1 {
-                        name: qsTr("Garlic Naan")
-                        price: 15
-                        onQuantityUpdated: updateOrder()
-                    }
-                    item2 {
-                        name: qsTr("Keema Naan")
-                        price: 18
-                        onQuantityUpdated: updateOrder()
-                    }
-                    item3 {
-                        name: qsTr("Naan at all")
-                        price: 10
-                        onQuantityUpdated: updateOrder()
                     }
                 }
                 Page {
@@ -302,8 +330,7 @@ ApplicationWindow {
                                     y: (parent.height - height) / 2
                                 }
 
-                                onMoved:
-                                {
+                                onMoved: {
                                     tipLabel.text = `$${tipSlider.value}`
                                     updateOrder()
                                 }
@@ -319,9 +346,16 @@ ApplicationWindow {
                                 Layout.minimumWidth: 40 // ensures the layout reserves space
                             }
                         }
-
                     }
                 }
+            }
+
+            // ---- Page Indicator ----
+            PageIndicator {
+                id: pageIndicator
+                Layout.alignment: Qt.AlignHCenter
+                count: stackLayout.count
+                currentIndex: stackLayout.currentIndex
             }
         }
     }
@@ -337,7 +371,9 @@ ApplicationWindow {
                 text: "Total Order Cost: $0"
                 font.pixelSize: 28
             }
-            Item {Layout.fillWidth: true }
+            Item {
+                Layout.fillWidth: true
+            }
             ToolButton {
                 id: orderButton
                 text: qsTr("Order Now")
