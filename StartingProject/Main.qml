@@ -50,7 +50,7 @@ ApplicationWindow {
     function updateOrder() {
         const menuList = [menuStarters, menuMains, menuBreads, menuSides]
         let totalAmount = OrderUtils.calcTotal(menuList)
-        totalAmount += (diningOptionEatIn.checked) ? totalAmount * 0.05 : 0
+        totalAmount += (diningOptionTakeAway.checked) ? totalAmount * 0.02 : 0
         totalAmount += tipSlider.value
         console.log("Order has been updated; total amount: $", totalAmount)
         totalAmountLabel.text = `Total Order Cost: $${totalAmount}`
@@ -267,13 +267,13 @@ ApplicationWindow {
                             Layout.fillWidth: true
                             RadioButton {
                                 id: diningOptionEatIn
-                                text: qsTr("Eat In (+5%)")
+                                text: qsTr("Eat In")
                                 checked: true
                                 onCheckedChanged: updateOrder()
                             }
                             RadioButton {
                                 id: diningOptionTakeAway
-                                text: qsTr("Take away")
+                                text: qsTr("Take away (+2%)")
                                 onCheckedChanged: updateOrder()
                             }
                         }
